@@ -10,5 +10,6 @@ HOST = '127.0.0.1'
 PORT = 8080
 
 IMAGE_LOCAL_BUFF = "D:\\projects\python\\IoriBot\\rsc\\component\\pic\\tmp.jpg"
+IMGAE_LOCAL_MEME = "D:\\projects\python\\IoriBot\\rsc\\component\\pic\\meme"
 
 API_ROOT = 'http://127.0.0.1:8080'
