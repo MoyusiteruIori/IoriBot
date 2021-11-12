@@ -1,0 +1,5 @@
+.botvenv
+go-cqhttp
+__pycache__
+bilibili_config.py
+tmp.jpg
