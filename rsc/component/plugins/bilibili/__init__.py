@@ -1,7 +1,7 @@
 from aiocqhttp import exceptions
 from config import IMAGE_LOCAL_BUFF
 from aiocqhttp.message import MessageSegment
-from nonebot import on_command, CommandSession
+from nonebot import on_command, on_startup, CommandSession
 import nonebot
 from .info_extractor import *
 from ..eropic.pic_info import GetPic
@@ -10,6 +10,13 @@ from .bilibili_config import sub_liver, liver_pre_status
 
 
 pic_getter = GetPic()
+
+@on_startup
+async def init_liver_status():
+    for liver_uid in sub_liver:
+        live_room_info = await get_liveroom_status(liver_uid)
+        liver_pre_status[liver_uid] = live_room_info['liveStatus']
+
 
 @on_command("SearchUser", aliases=('查询用户','查找用户','搜索用户'))
 async def usrsearch(session:CommandSession):
