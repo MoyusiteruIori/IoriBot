@@ -78,6 +78,6 @@ async def _():
             try:
                 liver_pre_status[liver_uid] = live_room_info['liveStatus']
                 status = '开播啦' if cur_sta == 1 else '下播啦'
-                await bot.send_private_msg(user_id=1037655483, message=f'现在{sub_liver[liver_uid]}{status}')
+                await bot.send_group_msg(group_id=696421800, message=f'现在{sub_liver[liver_uid]}{status}')
             except CQHttpError:
                 pass
