@@ -1,4 +1,3 @@
-from aiocqhttp import exceptions
 from config import IMAGE_LOCAL_BUFF
 from aiocqhttp.message import MessageSegment
 from nonebot import on_command, on_startup, CommandSession
