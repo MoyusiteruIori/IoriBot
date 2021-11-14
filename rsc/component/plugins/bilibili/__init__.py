@@ -1,8 +1,13 @@
+from aiocqhttp import exceptions
 from config import IMAGE_LOCAL_BUFF
 from aiocqhttp.message import MessageSegment
 from nonebot import on_command, CommandSession
+import nonebot
 from .info_extractor import *
 from ..eropic.pic_info import GetPic
+from aiocqhttp.exceptions import Error as CQHttpError
+from .bilibili_config import sub_liver, liver_pre_status
+
 
 pic_getter = GetPic()
 
@@ -53,3 +58,20 @@ async def liveroom_search(session:CommandSession):
             cover_seq = MessageSegment.image('file:///{}'.format(IMAGE_LOCAL_BUFF))
             text_seq  = MessageSegment.text(f'{live_status}\n标题：{title}\n主播：{usrname}\n房间号：{roomid}\n人气：{online}\n')
             await session.send(text_seq + cover_seq, at_sender=True)
+
+
+
+@nonebot.scheduler.scheduled_job('cron', minute='*')
+async def _():
+
+    bot = nonebot.get_bot()
+    for liver_uid in sub_liver:
+        live_room_info = await get_liveroom_status(liver_uid)
+        cur_sta, pre_sta = live_room_info['liveStatus'], liver_pre_status[liver_uid]
+        if cur_sta != pre_sta:
+            try:
+                liver_pre_status[liver_uid] = live_room_info['liveStatus']
+                status = '开播啦' if cur_sta == 1 else '下播啦'
+                await bot.send_private_msg(user_id=1037655483, message=f'现在{sub_liver[liver_uid]}{status}')
+            except CQHttpError:
+                pass
