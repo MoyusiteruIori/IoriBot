@@ -31,7 +31,7 @@ async def usrsearch(session:CommandSession):
         await pic_getter.get_pic(face)
         image_seq = MessageSegment.image('file:///{}'.format(IMAGE_LOCAL_BUFF))
         info_seq  = MessageSegment.text(f'{uname}\nuid:{uid}\n粉丝数:{fans}')
-        await session.send(info_seq + image_seq, at_sender=True)
+        await session.send(info_seq + image_seq)
     else:
         await session.send(usr)
 
@@ -63,7 +63,7 @@ async def liveroom_search(session:CommandSession):
 
             cover_seq = MessageSegment.image('file:///{}'.format(IMAGE_LOCAL_BUFF))
             text_seq  = MessageSegment.text(f'{live_status}\n标题：{title}\n主播：{usrname}\n房间号：{roomid}\n人气：{online}\n')
-            await session.send(text_seq + cover_seq, at_sender=True)
+            await session.send(text_seq + cover_seq)
 
 
 
