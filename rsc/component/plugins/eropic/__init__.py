@@ -9,4 +9,4 @@ async def eropic(session : CommandSession):
     pic = GetPic()
     await pic.get_pic()
     seq = MessageSegment.image('file:///{}'.format(IMAGE_LOCAL_BUFF))
-    await session.send(seq, at_sender=True)
+    await session.send(seq)
