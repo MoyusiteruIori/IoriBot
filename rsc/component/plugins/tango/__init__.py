@@ -10,7 +10,7 @@ async def write_eng(session:CommandSession):
     if(answer == right_eng):
         await session.send('答对啦')
     else:
-        await session.send(f'笨比，答案是{right_eng}')
+        await session.send(f'笨蛋，答案是{right_eng}')
         
 @on_command('单选单词', aliases=('!tango'))
 async def choose_eng(session:CommandSession):
@@ -24,7 +24,7 @@ async def choose_eng(session:CommandSession):
         + f'C {answers[2][0]}\n'
         + f'D {answers[3][0]}\n'
         ))
-    if(answer == ans_dict[right_ans[0]]):
+    if(answer[0] == ans_dict[right_ans[0]]):
         await session.send('答对啦')
     else:
-        await session.send(f'笨比，答案是「{right_ans[0]}」')
+        await session.send(f'笨蛋，答案是「{right_ans[0]}」')
