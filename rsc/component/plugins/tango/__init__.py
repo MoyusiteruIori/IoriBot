@@ -1,5 +1,6 @@
 from nonebot import on_command, CommandSession
 from .list import tango, rd_choose
+import asyncio
 import random
 
 @on_command('单词', aliases=('word', 'tango', '単語'))
@@ -28,3 +29,19 @@ async def choose_eng(session:CommandSession):
         await session.send('答对啦')
     else:
         await session.send(f'笨蛋，答案是「{right_ans[0]}」')
+        
+        
+@on_command('单词连发', aliases=('TangoCombo'))
+async def tango_combo(session:CommandSession):
+    while True:
+        answers = rd_choose(4)
+        right_eng, right_chn = random.choice(answers)
+        answer = (await session.aget(prompt=f'哼~哼~哼~\n「{right_chn}」\n它的英文是什么呢~')).strip()
+        if(answer == 'stop'):
+            break
+        if(answer == right_eng):
+            await session.send('答对啦')
+        else:
+            await session.send(f'笨蛋，答案是{right_eng}')
+        await asyncio.sleep(0.5)
+    await session.send('结束~~')
