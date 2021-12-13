@@ -283,7 +283,50 @@ tango = {
     'plan arrangement' :  '平面布局',
     'overhanging eaves' : '飞檐',
     'auxiliary building': '附属建筑',
-    'the elements' :      '恶劣天气'
+    'the elements' :      '恶劣天气',
+    
+    # Module 7
+    'fray' :              '磨损',
+    'tetanus' :           '破伤风',
+    'pneumatic caisson' : '气压沉箱',
+    'deck' :              '桥面板',
+    'airlock' :           '气阀',
+    'paralyze' :          '使瘫痪',
+    'contractor' :        '承包商',
+    'fail-safe' :         '失效保护，故障保护',
+    'suspension bridge' : '悬索桥',
+    'hybrid model' :      '混合模型',
+    'cable-stayed bridge':'索拉桥，斜拉桥',
+    'anchor cable' :      '锚索',
+    'hemp rope' :         '麻绳',
+    'decompression sickness' : '减压病',
+    
+    'synchronize' :       '使同步',
+    'feat' :              '功绩',
+    'limestone' :         '石灰岩',
+    'transmit' :          '传递',
+    'dovetail' :          '楔形榫头',
+    'abutment' :          '毗连',
+    'balustrade' :        '栏杆',
+    'rotate' :            '旋转',
+    'bolt' :              '螺栓; 拴牢',
+    'clog' :              '堵塞',
+    'patent' :            '专利；得到...专利',
+    'vertical' :          '垂直的',
+    'innovative' :        '创新的，革新的',
+    'excavation' :        '基坑工程；挖掘',
+    'accommodate' :       '容纳，为...提供住宿；使...适应',
+    'watertight' :        '不透水的',
+    'shield' :            '盾构',
+    'hydroelectric' :     '水力发电的',
+    'portal' :            '入口',
+    'scoff at' :          '嘲笑',
+    'crescent moon' :     '新月',
+    'crescent' :          '月牙形',
+    'open-spandrel arch bridge' : '空腹拱桥',
+    'central pillar' :    '中立柱'
+    
+    
 }
 
 def rd_choose(n:int=4) -> list[tuple]:
